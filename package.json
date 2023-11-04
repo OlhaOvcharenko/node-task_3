@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "electron": "5.0.6",
     "inquirer": "6.5.0",
     "jimp": "0.6.4"
   }
