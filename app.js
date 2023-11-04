@@ -80,10 +80,11 @@ const startApp = async () => {
     const prepareOutputFilename = (filename) => {
         const [ name, ext ] = filename.split('.');
         return `${name}-with-watermark.${ext}`;
-      };
+    };
 
 
     if (fs.existsSync('./img/' + options.inputImage)) {
+
         if(options.watermarkType === 'Text watermark') {
             const text = await inquirer.prompt([{
             name: 'value',
@@ -105,15 +106,15 @@ const startApp = async () => {
 
             if (fs.existsSync('./img/' + options.watermarkImage)) {
                 addImageWatermarkToImage('./img/' + options.inputImage, './img/' + prepareOutputFilename(options.inputImage), './img/' + options.watermarkImage);
-               
             } else {
-
                 console.log('Something went wrong... Try again') 
             }
         }
 
-    } else {console.log('Something went wrong... Try again') }
+    } else { 
+        console.log('Something went wrong... Try again') 
+    }
 
 }
   
-  startApp();
+startApp();
