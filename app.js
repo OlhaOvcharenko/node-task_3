@@ -22,7 +22,6 @@ const addTextWatermarkToImage = async function(inputFile, outputFile, text) {
     } catch (error) {
 
         console.error('Something went wrong... Try again!');
-        startApp();
 
     } 
 }
@@ -47,8 +46,6 @@ const addImageWatermarkToImage = async function(inputFile, outputFile, watermark
     } catch (error) {
 
         console.error('Something went wrong... Try again!');
-        startApp();
-
     } 
 };
 
@@ -63,7 +60,6 @@ const startApp = async () => {
   
     // if answer is no, just quit the app
     if(!answer.start) process.exit();
-
     // ask about input file and watermark type
     const options = await inquirer.prompt([{
     name: 'inputImage',
@@ -75,8 +71,6 @@ const startApp = async () => {
     type: 'list',
     choices: ['Text watermark', 'Image watermark'],
     }]);
-
-
     const prepareOutputFilename = (filename) => {
         const [ name, ext ] = filename.split('.');
         return `${name}-with-watermark.${ext}`;
